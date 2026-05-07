@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5L8FN69B');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laurent M. Alovognanou — Data Engineer & Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --ivory: #f5f1eb;
+    --gold: #c8973a;
+    --gold-light: #e8c97a;
+    --rust: #8b3a2a;
+    --sage: #2a5c4e;
+    --mid: #6b6660;
+    --card: #ffffff;
+    --border: #ddd8d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  header {
+    background: var(--ink);
+    color: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 60px 60px;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 60px solid var(--gold);
+    opacity: 0.12;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 200px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    border: 40px solid var(--gold-light);
+    opacity: 0.08;
+  }
+
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .title-accent {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-meta {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #b0aa9f;
+  }
+
+  .hero-meta a { color: var(--gold-light); text-decoration: none; }
+
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  .avatar-wrap {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #2a2720;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+  }
+
+  /* ── SECTION ── */
+  section { margin-bottom: 52px; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── EXPERIENCE CARDS ── */
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-radius: 0 8px 8px 0;
+    transition: box-shadow .2s, transform .2s;
+    animation: fadeUp .5s ease both;
+  }
+
+  .exp-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translateX(4px);
+  }
+
+  .exp-card:nth-child(2) { animation-delay: .1s; border-left-color: var(--sage); }
+  .exp-card:nth-child(3) { animation-delay: .2s; border-left-color: var(--rust); }
+  .exp-card:nth-child(4) { animation-delay: .3s; border-left-color: var(--gold); }
+  .exp-card:nth-child(5) { animation-delay: .4s; border-left-color: var(--sage); }
+  .exp-card:nth-child(6) { animation-delay: .5s; border-left-color: var(--rust); }
+
+  .exp-org {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .exp-role {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin: 4px 0 6px;
+  }
+
+  .exp-period {
+    font-size: 12px;
+    color: var(--mid);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .exp-period::before {
+    content: '';
+    display: inline-block;
+    width: 12px; height: 1px;
+    background: var(--mid);
+  }
+
+  .exp-tasks {
+    list-style: none;
+    font-size: 13.5px;
+    color: #3a3530;
+  }
+
+  .exp-tasks li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+
+  .exp-tasks li::before {
+    content: '›';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── SIDEBAR ── */
+  aside section { margin-bottom: 40px; }
+
+  .sidebar-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+
+  /* ── EXPERTISE TAG ── */
+  .expertise-box {
+    background: var(--ink);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .expertise-box::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  /* ── SKILLS ── */
+  .skill-pill {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 4px 4px 0 0;
+    border: 1px solid #2a2720;
+    transition: background .2s;
+  }
+
+  .skill-pill:hover { background: var(--gold); color: var(--ink); }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-degree {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .edu-year {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .lang-item:last-child { border-bottom: none; }
+
+  .lang-bar {
+    height: 3px;
+    width: 80px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .lang-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  /* ── REFERENCES ── */
+  .ref-item {
+    padding: 12px;
+    background: #faf8f4;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    font-size: 12.5px;
+  }
+
+  .ref-name { font-weight: 500; font-size: 13px; margin-bottom: 2px; }
+  .ref-role { color: var(--mid); font-size: 11.5px; margin-bottom: 4px; }
+  .ref-contact { color: var(--sage); font-size: 11px; }
+
+  /* ── INTERESTS ── */
+  .interest-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0ece5;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 4px 4px 0 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #6b6660;
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 50px 24px 40px; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .avatar-wrap { display: none; }
+    main { grid-template-columns: 1fr; padding: 32px 24px 60px; }
+  }
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L8FN69B"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- HERO -->
+<header>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-label">Curriculum Vitae · Bénin</p>
+      <h1>
+        Laurent Minakpon <br>
+        <span class="title-accent">ALOVOGNANKOU</span>
+      </h1>
+      <div class="hero-meta">
+        <span>📊 Data Engineer – Data Analyst</span>
+        <span>🇧🇯 Nationalité Béninoise</span>
+        <span>📅 Né le 24 août 1992, Pobè</span>
+        <span>📞 0195368697 / 0161776584</span>
+        <span>✉️ <a href="mailto:lolostar924@gmail.com">lolostar924@gmail.com</a></span>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+  <img src="Laurent_Alovognankou.jpg" alt="Laurent M. Alovognanou" style="width:100%; height:100%; object-fit:cover;">
+</div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <!-- EXPERTISE -->
+    <section>
+      <p class="section-label">À propos</p>
+      <div class="expertise-box">
+        Expertise en analyses de Big Data avec des outils technologiques modernes afin de rendre les données accessibles pour une bonne prise de décision.
+      </div>
+    </section>
+
+    <!-- EXPÉRIENCES -->
+    <section>
+      <p class="section-label">Parcours</p>
+      <h2>Expériences Professionnelles</h2>
+
+      <div class="exp-card">
+        <div class="exp-org">Médecins Sans Frontières (Projet Couffo Santé Maternelle et Néonatologie)</div>
+        <div class="exp-role">Superviseur des données Médicales</div>
+        <div class="exp-period">du O1 juillet au 31 juillet 2025 </div>
+        <ul class="exp-tasks">
+          <li>Collecte et saisie des données sur DHIS2</li>
+          <li>Analyse des données médicales issues des Sage-Femmes, APS, Responsable de Contrôle des Infections et Centres de Santés</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-org">Ministère de l'Enseignement Secondaire, Technique et de la Formation Professionnelle</div>
+        <div class="exp-role">Consultant Gestionnaire des plateformes éducatives</div>
+        <div class="exp-period">Nov. 2022 — Jan. 2026</div>
+        <ul class="exp-tasks">
+          <li>Appui aux Directeurs des collèges d'enseignements généraux de la commune de Ouidah dans la gestion des plateformes éducatives</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-org">Programme Nationale de Lutte contre le Paludisme/ Programme Nationale de Lutte contre les Maladies Tropicales et Négligées / ONG Catholic Relief Service (CRS)</div>
+        <div class="exp-role">Administrateur Technologie & Formation</div>
+        <div class="exp-period">Fév. 2020 — Juil. 2023 (temps partiel)</div>
+        <ul class="exp-tasks">
+          <li>Suivi des activités des Superviseurs de Proximité et Agents de Dénombrement</li>
+          <li>Suivi des opérations de distribution des Moustiquaires et des médicaments contre Onchocercose et Paludisme dans les communes de Kouandé, Porto-Novo, Adjohoun et Ouidah </li>
+          <li>Formation des chefs de village à la sensibilisation à la santé</li>
+          <li>Formation des relais communautaires à la distribution des moustiquaires et médicaments</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-org">Organisation Mondiale de la Santé (OMS)</div>
+        <div class="exp-role">Moniteur Indépendant</div>
+        <div class="exp-period">Mai – Juin 2021 · Vaccination anti-poliomyélite</div>
+        <ul class="exp-tasks">
+          <li>Identification des zones mal ou non couvertes dans les Activités de Vaccination Supplémentaires</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-org">Présidence de la République / INSAE · Projet ARCH</div>
+        <div class="exp-role">Contrôleur des Agents Communautaires et Enquêteurs PMT-RAVIP</div>
+        <div class="exp-period">Nov. 2020 — Avr. 2021</div>
+        <ul class="exp-tasks">
+          <li>Supervision de ménage en ménage des agents chargés d'enregistrer la population pauvre extrême</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-org">CHUD-OP & Polyclinique Le Bon Samaritain de Porto-Novo</div>
+        <div class="exp-role">Statisticien</div>
+        <div class="exp-period">Jan. 2019 — Nov. 2020</div>
+        <ul class="exp-tasks">
+          <li>Collecte, saisie sur DHIS2 et gestion des données épidémiologiques</li>
+          <li>Pilotage de recherches sur des pathologies post-opératoires</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STAGES -->
+    <section>
+      <p class="section-label">Formation pratique</p>
+      <h2>Stages</h2>
+      <div class="exp-card" style="border-left-color: var(--mid);">
+        <div class="exp-org">CHUD de l'Ouémé-Plateau</div>
+        <div class="exp-period">1 an, 3 mois, 3 semaines, 4 jours · Stage de perfectionnement</div>
+      </div>
+      <div class="exp-card" style="border-left-color: var(--mid);">
+        <div class="exp-org">Polyclinique Le Bon Samaritain de Porto-Novo</div>
+        <div class="exp-period">2 mois · Stage de perfectionnement</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside>
+
+    <!-- FORMATION -->
+    <section>
+      <p class="section-label">Formation</p>
+      <h2>Études</h2>
+      <div class="sidebar-card">
+          <div class="edu-item">
+          <div class="edu-degree">Certification en Data Engineer<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK)-Programme Force-N </small></div>
+          <div class="edu-year">2026</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Licence en Economie-Appliquée (Statistique-Econometrie)<br><small style="color:var(--mid)">Université d'Abomey-Calavi (UAC) /FASEG</small></div>
+          <div class="edu-year">2017</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Baccalauréat Série C</div>
+          <div class="edu-year">2012</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Baccalauréat Série D</div>
+          <div class="edu-year">2013</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGICIELS -->
+    <section>
+      <p class="section-label">Tech stack</p>
+      <h2>Logiciels</h2>
+      <div>
+        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">R</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Apache Hadoop</span>
+        <span class="skill-pill">Apache Spark</span>
+        <span class="skill-pill">Apache Airflow</span>
+        <span class="skill-pill">Apache Hive</span>
+        <span class="skill-pill">Apache Kafka</span>
+        <span class="skill-pill">Apache Superset</span>
+        <span class="skill-pill">Postgre SQL</span>
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">SQL Server</span>
+        <span class="skill-pill">DHIS2</span>
+        <span class="skill-pill">KoboCollect</span>
+        <span class="skill-pill">Microsoft 365</span>
+      </div>
+    </section>
+
+    <!-- LANGUES -->
+    <section>
+      <p class="section-label">Communication</p>
+      <h2>Langues</h2>
+      <div class="sidebar-card">
+        <div class="lang-item">
+          <span>Français</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-item">
+          <span>Anglais</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+        </div>
+        <div class="lang-item">
+          <span>Nagot / Yorouba</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
+        </div>
+        <div class="lang-item">
+          <span>Fon / Goun</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+        </div>
+        <div class="lang-item">
+          <span>Adja</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉFÉRENCES -->
+    <section>
+      <p class="section-label">Réseau</p>
+      <h2>Références</h2>
+
+      <div class="ref-item">
+        <div class="ref-name">Mr Ibrahima Oumar LY</div>
+        <div class="ref-role">Senior Data Engineer · CEDEAO</div>
+        <div class="ref-contact">📞 +221 76 422 22 85<br>✉ mlyibrahima@gmail.com</div>
+      </div>
+
+      <div class="ref-item">
+        <div class="ref-name">Mr Elijah Desire EGWU</div>
+        <div class="ref-role">Senior Program Manager · Catholic Relief Service</div>
+        <div class="ref-contact">📞 (229) 90017997<br>✉ elijah.egwu@crs.org</div>
+      </div>
+
+      <div class="ref-item">
+        <div class="ref-name">Mr Laurent Ndamulume</div>
+        <div class="ref-role">Référent Projet Médical Couffo · MSF</div>
+        <div class="ref-contact">📞 0156982485<br>✉ MSFOCB-Couffo-PMR@brussels.msf.org</div>
+      </div>
+    </section>
+
+    <!-- INTÉRÊTS -->
+    <section>
+      <p class="section-label">Loisirs</p>
+      <h2>Centres d'intérêts</h2>
+      <div>
+        <span class="interest-tag">⚽ Football</span>
+        <span class="interest-tag">🎮 Jeux</span>
+        <span class="interest-tag">🎵 Musique</span>
+        <span class="interest-tag">🎬 Cinéma</span>
+      </div>
+    </section>
+
+  </aside>
+</main>
+
+<footer>
+  <p>Laurent M. Alovognanou &nbsp;·&nbsp; Data Engineer & Analyst &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : mai 2026</p>
+</footer>
+
+</body>
+</html>
