@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5L8FN69B');</script>
-<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NSCSTR3FS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9NSCSTR3FS');
+</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,6 +122,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: flex; align-items: center; justify-content: center;
     font-size: 48px;
     color: var(--gold);
+  }
+  
+  /* Language Switcher Button */
+  .lang-switcher {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .lang-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+  
+  .lang-btn:hover {
+    background: var(--gold);
+    color: var(--ink);
   }
 
   /* ── LAYOUT ── */
@@ -361,7 +396,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @media (max-width: 768px) {
@@ -369,6 +404,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-inner { grid-template-columns: 1fr; }
     .avatar-wrap { display: none; }
     main { grid-template-columns: 1fr; padding: 32px 24px 60px; }
+    .lang-switcher { top: 10px; right: 15px; }
+    .lang-btn { padding: 4px 12px; font-size: 10px; }
   }
 </style>
 </head>
@@ -378,26 +415,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Language Switcher -->
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+  <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 EN</button>
+</div>
+
 <!-- HERO -->
 <header>
   <div class="hero-inner">
     <div>
-      <p class="hero-label">Curriculum Vitae · Bénin</p>
+      <p class="hero-label" id="hero-label">Curriculum Vitae</p>
       <h1>
         Laurent Minakpon <br>
         <span class="title-accent">ALOVOGNANKOU</span>
       </h1>
       <div class="hero-meta">
-        <span>📊 Data Engineer – Data Analyst</span>
-        <span>🇧🇯 Nationalité Béninoise</span>
-        <span>📅 Né le 24 août 1992, Pobè</span>
-        <span>📞 0195368697 / 0161776584</span>
+        <span id="job-title">📊 Data Engineer – Data Analyst</span>
+        <span id="nationality">🇧🇯 Nationalité Béninoise</span>
+        <span id="birth">📅 Né le 24 août 1992, Pobè</span>
+        <span>📞 <a href="tel:0195368697">0195368697</a> / <a href="tel:0161776584">0161776584</a></span>
         <span>✉️ <a href="mailto:lolostar924@gmail.com">lolostar924@gmail.com</a></span>
       </div>
     </div>
     <div class="avatar-wrap">
-  <img src="Laurent_Alovognankou.jpg" alt="Laurent M. Alovognanou" style="width:100%; height:100%; object-fit:cover;">
-</div>
+      <img src="Laurent_Alovognankou.jpg" alt="Laurent M. Alovognanou" style="width:100%; height:100%; object-fit:cover;">
+    </div>
   </div>
 </header>
 
@@ -409,88 +452,92 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- EXPERTISE -->
     <section>
-      <p class="section-label">À propos</p>
-      <div class="expertise-box">
-        Expertise en analyses de Big Data avec des outils technologiques modernes afin de rendre les données accessibles pour une bonne prise de décision.
+      <p class="section-label" id="about-label">À propos</p>
+      <div class="expertise-box" id="about-text">
+        Expertise en conception, maintenance et déploiement de Pipeline ETL ou ETL automatisé avec des outils technologiques modernes afin de rendre les données accessibles pour une bonne prise de décision. Egalement compétent en analyse de données, visualisation et storytelling pour transformer les données en insights exploitables. Expérience dans la gestion de projets data, la collaboration interfonctionnelle et la formation des équipes à l'utilisation des outils de données. Aussi des compétences considérables en développement web et Mobile.
       </div>
     </section>
 
     <!-- EXPÉRIENCES -->
     <section>
-      <p class="section-label">Parcours</p>
-      <h2>Expériences Professionnelles</h2>
+      <p class="section-label" id="experience-label">Parcours</p>
+      <h2 id="experience-title">Expériences Professionnelles</h2>
 
       <div class="exp-card">
-        <div class="exp-org">Médecins Sans Frontières (Projet Couffo Santé Maternelle et Néonatologie)</div>
-        <div class="exp-role">Superviseur des données Médicales</div>
-        <div class="exp-period">du O1 juillet au 31 juillet 2025 </div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp1-org">Médecins Sans Frontières (Projet Couffo Santé Maternelle et Néonatologie)</div>
+        <div class="exp-role" id="exp1-role">Superviseur des données Médicales</div>
+        <div class="exp-period" id="exp1-period">du 01 juillet au 31 juillet 2025</div>
+        <ul class="exp-tasks" id="exp1-tasks">
           <li>Collecte et saisie des données sur DHIS2</li>
           <li>Analyse des données médicales issues des Sage-Femmes, APS, Responsable de Contrôle des Infections et Centres de Santés</li>
         </ul>
       </div>
 
       <div class="exp-card">
-        <div class="exp-org">Ministère de l'Enseignement Secondaire, Technique et de la Formation Professionnelle</div>
-        <div class="exp-role">Consultant Gestionnaire des plateformes éducatives</div>
-        <div class="exp-period">Nov. 2022 — Jan. 2026</div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp2-org">Ministère de l'Enseignement Secondaire, Technique et de la Formation Professionnelle</div>
+        <div class="exp-role" id="exp2-role">Consultant Gestionnaire des plateformes éducatives</div>
+        <div class="exp-period" id="exp2-period">Nov. 2022 — Jan. 2026</div>
+        <ul class="exp-tasks" id="exp2-tasks">
           <li>Appui aux Directeurs des collèges d'enseignements généraux de la commune de Ouidah dans la gestion des plateformes éducatives</li>
         </ul>
       </div>
 
       <div class="exp-card">
-        <div class="exp-org">Programme Nationale de Lutte contre le Paludisme/ Programme Nationale de Lutte contre les Maladies Tropicales et Négligées / ONG Catholic Relief Service (CRS)</div>
-        <div class="exp-role">Administrateur Technologie & Formation</div>
-        <div class="exp-period">Fév. 2020 — Juil. 2023 (temps partiel)</div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp3-org">Programme Nationale de Lutte contre le Paludisme/ Programme Nationale de Lutte contre les Maladies Tropicales et Négligées / ONG Catholic Relief Service (CRS)</div>
+        <div class="exp-role" id="exp3-role">Administrateur Technologie & Formation</div>
+        <div class="exp-period" id="exp3-period">Fév. 2020 — Juil. 2023 (temps partiel)</div>
+        <ul class="exp-tasks" id="exp3-tasks">
           <li>Suivi des activités des Superviseurs de Proximité et Agents de Dénombrement</li>
-          <li>Suivi des opérations de distribution des Moustiquaires et des médicaments contre Onchocercose et Paludisme dans les communes de Kouandé, Porto-Novo, Adjohoun et Ouidah </li>
+          <li>Suivi des opérations de distribution des Moustiquaires et des médicaments contre Onchocercose et Paludisme dans les communes de Kouandé, Porto-Novo, Adjohoun et Ouidah</li>
           <li>Formation des chefs de village à la sensibilisation à la santé</li>
           <li>Formation des relais communautaires à la distribution des moustiquaires et médicaments</li>
         </ul>
       </div>
 
       <div class="exp-card">
-        <div class="exp-org">Organisation Mondiale de la Santé (OMS)</div>
-        <div class="exp-role">Moniteur Indépendant</div>
-        <div class="exp-period">Mai – Juin 2021 · Vaccination anti-poliomyélite</div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp4-org">Organisation Mondiale de la Santé (OMS)</div>
+        <div class="exp-role" id="exp4-role">Moniteur Indépendant</div>
+        <div class="exp-period" id="exp4-period">Mai – Juin 2021 · Vaccination anti-poliomyélite</div>
+        <ul class="exp-tasks" id="exp4-tasks">
           <li>Identification des zones mal ou non couvertes dans les Activités de Vaccination Supplémentaires</li>
         </ul>
       </div>
 
       <div class="exp-card">
-        <div class="exp-org">Présidence de la République / INSAE · Projet ARCH</div>
-        <div class="exp-role">Contrôleur des Agents Communautaires et Enquêteurs PMT-RAVIP</div>
-        <div class="exp-period">Nov. 2020 — Avr. 2021</div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp5-org">Présidence de la République / INSAE · Projet ARCH</div>
+        <div class="exp-role" id="exp5-role">Contrôleur des Agents Communautaires et Enquêteurs PMT-RAVIP</div>
+        <div class="exp-period" id="exp5-period">Nov. 2020 — Avr. 2021</div>
+        <ul class="exp-tasks" id="exp5-tasks">
           <li>Supervision de ménage en ménage des agents chargés d'enregistrer la population pauvre extrême</li>
         </ul>
       </div>
 
       <div class="exp-card">
-        <div class="exp-org">CHUD-OP & Polyclinique Le Bon Samaritain de Porto-Novo</div>
-        <div class="exp-role">Statisticien</div>
-        <div class="exp-period">Jan. 2019 — Nov. 2020</div>
-        <ul class="exp-tasks">
+        <div class="exp-org" id="exp6-org">Centre Hospitalier Universitaire et Départemental de Porto-Novo (CHUD-OP) & Polyclinique Le Bon Samaritain de Porto-Novo</div>
+        <div class="exp-role" id="exp6-role">Statisticien</div>
+        <div class="exp-period" id="exp6-period">Jan. 2019 — Nov. 2020</div>
+        <ul class="exp-tasks" id="exp6-tasks">
           <li>Collecte, saisie sur DHIS2 et gestion des données épidémiologiques</li>
           <li>Pilotage de recherches sur des pathologies post-opératoires</li>
         </ul>
       </div>
     </section>
 
-    <!-- STAGES -->
+    <!-- PROJETS -->
     <section>
-      <p class="section-label">Formation pratique</p>
-      <h2>Stages</h2>
+      <p class="section-label" id="projects-label">Mes Réalisations</p>
+      <h2 id="projects-title">Projets</h2>
       <div class="exp-card" style="border-left-color: var(--mid);">
-        <div class="exp-org">CHUD de l'Ouémé-Plateau</div>
-        <div class="exp-period">1 an, 3 mois, 3 semaines, 4 jours · Stage de perfectionnement</div>
+        <div class="exp-org" id="project1-desc">Ce projet vise à concevoir et à implémenter un pipeline ETL automatisé pour la gestion des notes des étudiants</div>
+        <div><a href="https://github.com/Lolostar3/Projet_Global_ForceN_Avec_Airflow" target="_blank" id="project1-link">Lien github vers le projet</a></div>
       </div>
       <div class="exp-card" style="border-left-color: var(--mid);">
-        <div class="exp-org">Polyclinique Le Bon Samaritain de Porto-Novo</div>
-        <div class="exp-period">2 mois · Stage de perfectionnement</div>
+        <div class="exp-org" id="project2-desc">L'objectif général du projet est de concevoir et implémenter un entrepôt de données qui servira de source de données au DA pour la création des tableaux de bord.</div>
+        <div class="exp-period"><a href="https://tinyurl.com/m9aebmmv" target="_blank" id="project2-link">Lien google drive vers le projet</a></div>
+      </div>
+        <div class="exp-card" style="border-left-color: var(--mid);">
+        <div class="exp-org" id="project3-desc">L'objectif général du projet est de mettre en ligne mon Curriculum Vitae avec l'outil Github Action, un hergeur gratuit</div>
+        <div class="exp-period"><a href="https://tinyurl.com/59n3667p" target="_blank" id="project3-link">Lien GitHub vers le projet</a></div>
       </div>
     </section>
 
@@ -501,114 +548,123 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- FORMATION -->
     <section>
-      <p class="section-label">Formation</p>
-      <h2>Études</h2>
+      <p class="section-label" id="education-label">Formation</p>
+      <h2 id="education-title">Études</h2>
       <div class="sidebar-card">
-          <div class="edu-item">
-          <div class="edu-degree">Certification en Data Engineer<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK)-Programme Force-N </small></div>
+        <div class="edu-item">
+          <div class="edu-degree" id="edu1-degree">Certification en Data Engineer<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N</small></div>
           <div class="edu-year">2026</div>
         </div>
         <div class="edu-item">
-          <div class="edu-degree">Licence en Economie-Appliquée (Statistique-Econometrie)<br><small style="color:var(--mid)">Université d'Abomey-Calavi (UAC) /FASEG</small></div>
+          <div class="edu-degree" id="edu2-degree">Attestation de formation en Développement Mobile <br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small></div>
+          <div class="edu-year">2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree" id="edu3-degree">Licence en Economie-Appliquée (Statistique-Econometrie)<br><small style="color:var(--mid)">Université d'Abomey-Calavi (UAC)/FASEG BENIN</small></div>
           <div class="edu-year">2017</div>
         </div>
         <div class="edu-item">
-          <div class="edu-degree">Baccalauréat Série C</div>
+          <div class="edu-degree" id="edu4-degree">Baccalauréat Série C - BENIN</div>
           <div class="edu-year">2012</div>
         </div>
         <div class="edu-item">
-          <div class="edu-degree">Baccalauréat Série D</div>
+          <div class="edu-degree" id="edu5-degree">Baccalauréat Série D - BENIN</div>
           <div class="edu-year">2013</div>
         </div>
       </div>
     </section>
 
-    <!-- LOGICIELS -->
+    <!-- TECH STACK -->
     <section>
-      <p class="section-label">Tech stack</p>
-      <h2>Logiciels</h2>
-      <div>
+      <p class="section-label" id="tech-label">Tech stack</p>
+      <h2 id="tech-title">Logiciels-Frameworks-Platforms</h2>
+      <div id="tech-stack">
         <span class="skill-pill">Linux</span>
-        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Python (pandas,numpy,matplotlib,Pymongo)</span>
         <span class="skill-pill">R</span>
         <span class="skill-pill">Power BI</span>
         <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Apache Superset</span>
         <span class="skill-pill">Apache Hadoop</span>
         <span class="skill-pill">Apache Spark</span>
         <span class="skill-pill">Apache Airflow</span>
         <span class="skill-pill">Apache Hive</span>
         <span class="skill-pill">Apache Kafka</span>
-        <span class="skill-pill">Apache Superset</span>
         <span class="skill-pill">Postgre SQL</span>
-        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">MySQL</span>
+         <span class="skill-pill">MongoDB</span>
         <span class="skill-pill">SQL Server</span>
         <span class="skill-pill">DHIS2</span>
         <span class="skill-pill">KoboCollect</span>
         <span class="skill-pill">Microsoft 365</span>
+        <span class="skill-pill">Git-Github</span>
+        <span class="skill-pill">Docker-Docker Hub</span>
+        <span class="skill-pill">Flutter - Dart</span>
+        <span class="skill-pill">HTML-CSS-JavaScript</span>
       </div>
     </section>
 
     <!-- LANGUES -->
     <section>
-      <p class="section-label">Communication</p>
-      <h2>Langues</h2>
+      <p class="section-label" id="languages-label">Communication</p>
+      <h2 id="languages-title">Langues</h2>
       <div class="sidebar-card">
         <div class="lang-item">
-          <span>Français</span>
+          <span id="lang-fr">Français</span>
           <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
         <div class="lang-item">
-          <span>Anglais</span>
+          <span id="lang-en">Anglais</span>
           <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
         </div>
         <div class="lang-item">
-          <span>Nagot / Yorouba</span>
-          <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
+          <span id="lang-yoruba">Nagot / Yoruba</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
         <div class="lang-item">
-          <span>Fon / Goun</span>
-          <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+          <span id="lang-fon">Fon / Goun</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
         <div class="lang-item">
-          <span>Adja</span>
-          <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
+          <span id="lang-adja">Adja</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:50%"></div></div>
         </div>
       </div>
     </section>
 
     <!-- RÉFÉRENCES -->
     <section>
-      <p class="section-label">Réseau</p>
-      <h2>Références</h2>
+      <p class="section-label" id="references-label">Réseau</p>
+      <h2 id="references-title">Références</h2>
 
       <div class="ref-item">
         <div class="ref-name">Mr Ibrahima Oumar LY</div>
-        <div class="ref-role">Senior Data Engineer · CEDEAO</div>
-        <div class="ref-contact">📞 +221 76 422 22 85<br>✉ mlyibrahima@gmail.com</div>
+        <div class="ref-role" id="ref1-role">Senior Data Engineer · CEDEAO</div>
+        <div class="ref-contact">📞 <a href="tel:+221 76 422 22 85">+221 76 422 22 85</a><br>✉ <a href="mailto:mlyibrahima@gmail.com">mlyibrahima@gmail.com</a></div>
       </div>
 
       <div class="ref-item">
         <div class="ref-name">Mr Elijah Desire EGWU</div>
-        <div class="ref-role">Senior Program Manager · Catholic Relief Service</div>
-        <div class="ref-contact">📞 (229) 90017997<br>✉ elijah.egwu@crs.org</div>
+        <div class="ref-role" id="ref2-role">Senior Program Manager · Catholic Relief Service</div>
+        <div class="ref-contact">📞 <a href="tel:+2290190017997">+229 0190017997</a><br>✉ <a href="mailto:elijah.egwu@crs.org">elijah.egwu@crs.org</a></div>
       </div>
 
       <div class="ref-item">
         <div class="ref-name">Mr Laurent Ndamulume</div>
-        <div class="ref-role">Référent Projet Médical Couffo · MSF</div>
-        <div class="ref-contact">📞 0156982485<br>✉ MSFOCB-Couffo-PMR@brussels.msf.org</div>
+        <div class="ref-role" id="ref3-role">Référent Projet Médical Couffo · MSF</div>
+        <div class="ref-contact">📞 <a href="tel:+2290156982485">+229 0156982485</a><br>✉ <a href="mailto:MSFOCB-Couffo-PMR@brussels.msf.org">MSFOCB-Couffo-PMR@brussels.msf.org</a></div>
       </div>
     </section>
 
     <!-- INTÉRÊTS -->
     <section>
-      <p class="section-label">Loisirs</p>
-      <h2>Centres d'intérêts</h2>
+      <p class="section-label" id="interests-label">Loisirs</p>
+      <h2 id="interests-title">Centres d'intérêts</h2>
       <div>
-        <span class="interest-tag">⚽ Football</span>
-        <span class="interest-tag">🎮 Jeux</span>
-        <span class="interest-tag">🎵 Musique</span>
-        <span class="interest-tag">🎬 Cinéma</span>
+        <span class="interest-tag">⚽ <span id="interest1">Football</span></span>
+        <span class="interest-tag">🎮 <span id="interest2">Jeux</span></span>
+        <span class="interest-tag">🎵 <span id="interest3">Musique</span></span>
+        <span class="interest-tag">🎬 <span id="interest4">Cinéma</span></span>
       </div>
     </section>
 
@@ -616,8 +672,266 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <footer>
-  <p>Laurent M. Alovognanou &nbsp;·&nbsp; Data Engineer & Analyst &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : mai 2026</p>
+  <p id="footer-text">Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer & Data Analyst &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 09 mai 2026</p>
 </footer>
+
+<script>
+  // Translations dictionary
+  const translations = {
+    fr: {
+      hero_label: "Curriculum Vitae",
+      job_title: "📊 Data Engineer – Data Analyst",
+      nationality: "🇧🇯 Nationalité Béninoise",
+      birth: "📅 Né le 24 août 1992, Pobè",
+      about_label: "À propos",
+      about_text: "Expertise en conception, maintenance et déploiement de Pipeline ETL ou ETL automatisé avec des outils technologiques modernes afin de rendre les données accessibles pour une bonne prise de décision. Egalement compétent en analyse de données, visualisation et storytelling pour transformer les données en insights exploitables. Expérience dans la gestion de projets data, la collaboration interfonctionnelle et la formation des équipes à l'utilisation des outils de données. Aussi des compétences considérables en développement web et Mobile.",
+      experience_label: "Parcours",
+      experience_title: "Expériences Professionnelles",
+      // Experiences
+      exp1_org: "Médecins Sans Frontières (Projet Couffo Santé Maternelle et Néonatologie)",
+      exp1_role: "Superviseur des données Médicales",
+      exp1_period: "du 01 juillet au 31 juillet 2025",
+      exp1_tasks: ["Collecte et saisie des données sur DHIS2", "Analyse des données médicales issues des Sage-Femmes, APS, Responsable de Contrôle des Infections et Centres de Santés"],
+      exp2_org: "Ministère de l'Enseignement Secondaire, Technique et de la Formation Professionnelle",
+      exp2_role: "Consultant Gestionnaire des plateformes éducatives",
+      exp2_period: "Nov. 2022 — Jan. 2026",
+      exp2_tasks: ["Appui aux Directeurs des collèges d'enseignements généraux de la commune de Ouidah dans la gestion des plateformes éducatives"],
+      exp3_org: "Programme Nationale de Lutte contre le Paludisme/ Programme Nationale de Lutte contre les Maladies Tropicales et Négligées / ONG Catholic Relief Service (CRS)",
+      exp3_role: "Administrateur Technologie & Formation",
+      exp3_period: "Fév. 2020 — Juil. 2023 (temps partiel)",
+      exp3_tasks: ["Suivi des activités des Superviseurs de Proximité et Agents de Dénombrement", "Suivi des opérations de distribution des Moustiquaires et des médicaments contre Onchocercose et Paludisme dans les communes de Kouandé, Porto-Novo, Adjohoun et Ouidah", "Formation des chefs de village à la sensibilisation à la santé", "Formation des relais communautaires à la distribution des moustiquaires et médicaments"],
+      exp4_org: "Organisation Mondiale de la Santé (OMS)",
+      exp4_role: "Moniteur Indépendant",
+      exp4_period: "Mai – Juin 2021 · Vaccination anti-poliomyélite",
+      exp4_tasks: ["Identification des zones mal ou non couvertes dans les Activités de Vaccination Supplémentaires"],
+      exp5_org: "Présidence de la République / INSAE · Projet ARCH",
+      exp5_role: "Contrôleur des Agents Communautaires et Enquêteurs PMT-RAVIP",
+      exp5_period: "Nov. 2020 — Avr. 2021",
+      exp5_tasks: ["Supervision de ménage en ménage des agents chargés d'enregistrer la population pauvre extrême"],
+      exp6_org: "Centre Hospitalier Universitaire et Départemental de Porto-Novo (CHUD-OP) & Polyclinique Le Bon Samaritain de Porto-Novo",
+      exp6_role: "Statisticien",
+      exp6_period: "Jan. 2019 — Nov. 2020",
+      exp6_tasks: ["Collecte, saisie sur DHIS2 et gestion des données épidémiologiques", "Pilotage de recherches sur des pathologies post-opératoires"],
+      projects_label: "Mes Réalisations",
+      projects_title: "Projets",
+      project1_desc: "Ce projet vise à concevoir et à implémenter un pipeline ETL automatisé pour la gestion des notes des étudiants",
+      project1_link: "Lien github vers le projet",
+      project2_desc: "L'objectif général du projet est de concevoir et implémenter un entrepôt de données qui servira de source de données au DA pour la création des tableaux de bord.",
+      project2_link: "Lien google drive vers le projet",
+      project3_desc: "L'objectif général du projet est de concevoir et implémenter un entrepôt de données qui servira de source de données au DA pour la création des tableaux de bord.",
+      project3_link: "Lien GitHub vers le projet",
+      education_label: "Formation",
+      education_title: "Études",
+      edu1_degree: "Certification en Data Engineer",
+      edu2_degree: "Attestation de formation en Développement Mobile",
+      edu3_degree: "Licence en Economie-Appliquée (Statistique-Econometrie)",
+      edu4_degree: "Baccalauréat Série C - BENIN",
+      edu5_degree: "Baccalauréat Série D - BENIN",
+      tech_label: "Tech stack",
+      tech_title: "Logiciels-Frameworks-Platforms",
+      languages_label: "Communication",
+      languages_title: "Langues",
+      lang_fr: "Français",
+      lang_en: "Anglais",
+      lang_yoruba: "Nagot / Yoruba",
+      lang_fon: "Fon / Goun",
+      lang_adja: "Adja",
+      references_label: "Réseau",
+      references_title: "Références",
+      ref1_role: "Senior Data Engineer · CEDEAO",
+      ref2_role: "Senior Program Manager · Catholic Relief Service",
+      ref3_role: "Référent Projet Médical Couffo · MSF",
+      interests_label: "Loisirs",
+      interests_title: "Centres d'intérêts",
+      interest1: "Football",
+      interest2: "Jeux",
+      interest3: "Musique",
+      interest4: "Cinéma",
+      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer & Data Analyst &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 09 mai 2026"
+    },
+    en: {
+      hero_label: "Resume",
+      job_title: "📊 Data Engineer – Data Analyst",
+      nationality: "🇧🇯 Beninese Nationality",
+      birth: "📅 Born August 24, 1992, Pobè",
+      about_label: "About",
+      about_text: "Expertise in designing, maintaining, and deploying automated ETL pipelines using modern technological tools to make data accessible for better decision-making. Also skilled in data analysis, visualization, and storytelling to transform data into actionable insights. Experience in data project management, cross-functional collaboration, and training teams in data tools. Also significant skills in web and mobile development.",
+      experience_label: "Career",
+      experience_title: "Professional Experience",
+      exp1_org: "Doctors Without Borders (Couffo Maternal and Neonatal Health Project)",
+      exp1_role: "Medical Data Supervisor",
+      exp1_period: "July 1 – July 31, 2025",
+      exp1_tasks: ["Data collection and entry on DHIS2", "Analysis of medical data from Midwives, APS, Infection Control Officers, and Health Centers"],
+      exp2_org: "Ministry of Secondary, Technical and Vocational Education",
+      exp2_role: "Consultant - Educational Platform Manager",
+      exp2_period: "Nov. 2022 — Jan. 2026",
+      exp2_tasks: ["Support to Directors of general education colleges in Ouidah municipality in managing educational platforms"],
+      exp3_org: "National Malaria Control Program / National Program for Neglected Tropical Diseases / NGO Catholic Relief Service (CRS)",
+      exp3_role: "Technology Administrator & Training",
+      exp3_period: "Feb. 2020 — Jul. 2023 (part-time)",
+      exp3_tasks: ["Monitoring activities of Proximity Supervisors and Enumeration Agents", "Monitoring distribution operations of mosquito nets and drugs against Onchocerciasis and Malaria in Kouandé, Porto-Novo, Adjohoun and Ouidah municipalities", "Training village chiefs in health awareness", "Training community relays in distributing mosquito nets and medicines"],
+      exp4_org: "World Health Organization (WHO)",
+      exp4_role: "Independent Monitor",
+      exp4_period: "May – Jun 2021 · Polio vaccination",
+      exp4_tasks: ["Identification of poorly or uncovered areas in Supplementary Vaccination Activities"],
+      exp5_org: "Presidency of the Republic / INSAE · ARCH Project",
+      exp5_role: "Controller of Community Agents and PMT-RAVIP Surveyors",
+      exp5_period: "Nov. 2020 — Apr. 2021",
+      exp5_tasks: ["Door-to-door supervision of agents responsible for registering the extreme poor population"],
+      exp6_org: "University and Departmental Hospital Center of Porto-Novo (CHUD-OP) & Le Bon Samaritain Clinic of Porto-Novo",
+      exp6_role: "Statistician",
+      exp6_period: "Jan. 2019 — Nov. 2020",
+      exp6_tasks: ["Data collection, entry on DHIS2 and epidemiological data management", "Leading research on post-operative pathologies"],
+      projects_label: "My Achievements",
+      projects_title: "Projects",
+      project1_desc: "This project aims to design and implement an automated ETL pipeline for managing student grades",
+      project1_link: "GitHub link to the project",
+      project2_desc: "The overall objective of the project is to design and implement a data warehouse that will serve as a data source for the DA to create dashboards.",
+      project2_link: "Google Drive link to the project",
+      project3_desc: "The overall goal of this project is to publish my resume online using GitHub Action, a free hosting service.",
+      project3_link: "GitHub link to the project",
+      education_label: "Education",
+      education_title: "Studies",
+      edu1_degree: "Data Engineer Certification",
+      edu2_degree: "Mobile Development Training Certificate",
+      edu3_degree: "Bachelor's in Applied Economics (Statistics-Econometrics)",
+      edu4_degree: "High School Diploma Series C - BENIN",
+      edu5_degree: "High School Diploma Series D - BENIN",
+      tech_label: "Tech stack",
+      tech_title: "Software-Frameworks-Platforms",
+      languages_label: "Communication",
+      languages_title: "Languages",
+      lang_fr: "French",
+      lang_en: "English",
+      lang_yoruba: "Nagot / Yoruba",
+      lang_fon: "Fon / Goun",
+      lang_adja: "Adja",
+      references_label: "Network",
+      references_title: "References",
+      ref1_role: "Senior Data Engineer · ECOWAS",
+      ref2_role: "Senior Program Manager · Catholic Relief Service",
+      ref3_role: "Couffo Medical Project Referent · MSF",
+      interests_label: "Hobbies",
+      interests_title: "Interests",
+      interest1: "Football",
+      interest2: "Games",
+      interest3: "Music",
+      interest4: "Movies",
+      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer & Data Analyst &nbsp;·&nbsp; Cotonou, Benin &nbsp;·&nbsp; Updated: May 09, 2026"
+    }
+  };
+
+  let currentLang = 'fr';
+
+  function switchLanguage(lang) {
+    currentLang = lang;
+    
+    // Update active button style
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    const t = translations[lang];
+    
+    // Hero section
+    document.getElementById('hero-label').textContent = t.hero_label;
+    document.getElementById('job-title').textContent = t.job_title;
+    document.getElementById('nationality').textContent = t.nationality;
+    document.getElementById('birth').textContent = t.birth;
+    
+    // About section
+    document.getElementById('about-label').textContent = t.about_label;
+    document.getElementById('about-text').textContent = t.about_text;
+    
+    // Experience section
+    document.getElementById('experience-label').textContent = t.experience_label;
+    document.getElementById('experience-title').textContent = t.experience_title;
+    document.getElementById('exp1-org').textContent = t.exp1_org;
+    document.getElementById('exp1-role').textContent = t.exp1_role;
+    document.getElementById('exp1-period').textContent = t.exp1_period;
+    const exp1Tasks = document.getElementById('exp1-tasks');
+    exp1Tasks.innerHTML = t.exp1_tasks.map(task => `<li>${task}</li>`).join('');
+    document.getElementById('exp2-org').textContent = t.exp2_org;
+    document.getElementById('exp2-role').textContent = t.exp2_role;
+    document.getElementById('exp2-period').textContent = t.exp2_period;
+    const exp2Tasks = document.getElementById('exp2-tasks');
+    exp2Tasks.innerHTML = t.exp2_tasks.map(task => `<li>${task}</li>`).join('');
+    document.getElementById('exp3-org').textContent = t.exp3_org;
+    document.getElementById('exp3-role').textContent = t.exp3_role;
+    document.getElementById('exp3-period').textContent = t.exp3_period;
+    const exp3Tasks = document.getElementById('exp3-tasks');
+    exp3Tasks.innerHTML = t.exp3_tasks.map(task => `<li>${task}</li>`).join('');
+    document.getElementById('exp4-org').textContent = t.exp4_org;
+    document.getElementById('exp4-role').textContent = t.exp4_role;
+    document.getElementById('exp4-period').textContent = t.exp4_period;
+    const exp4Tasks = document.getElementById('exp4-tasks');
+    exp4Tasks.innerHTML = t.exp4_tasks.map(task => `<li>${task}</li>`).join('');
+    document.getElementById('exp5-org').textContent = t.exp5_org;
+    document.getElementById('exp5-role').textContent = t.exp5_role;
+    document.getElementById('exp5-period').textContent = t.exp5_period;
+    const exp5Tasks = document.getElementById('exp5-tasks');
+    exp5Tasks.innerHTML = t.exp5_tasks.map(task => `<li>${task}</li>`).join('');
+    document.getElementById('exp6-org').textContent = t.exp6_org;
+    document.getElementById('exp6-role').textContent = t.exp6_role;
+    document.getElementById('exp6-period').textContent = t.exp6_period;
+    const exp6Tasks = document.getElementById('exp6-tasks');
+    exp6Tasks.innerHTML = t.exp6_tasks.map(task => `<li>${task}</li>`).join('');
+    
+    // Projects section
+    document.getElementById('projects-label').textContent = t.projects_label;
+    document.getElementById('projects-title').textContent = t.projects_title;
+    document.getElementById('project1-desc').textContent = t.project1_desc;
+    document.getElementById('project1-link').textContent = t.project1_link;
+    document.getElementById('project2-desc').textContent = t.project2_desc;
+    document.getElementById('project2-link').textContent = t.project2_link;
+    document.getElementById('project3-desc').textContent = t.project3_desc;
+    document.getElementById('project3-link').textContent = t.project3_link;
+    
+    // Education section
+    document.getElementById('education-label').textContent = t.education_label;
+    document.getElementById('education-title').textContent = t.education_title;
+    document.getElementById('edu1-degree').innerHTML = t.edu1_degree + '<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N</small>';
+    document.getElementById('edu2-degree').innerHTML = t.edu2_degree + '<br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small>';
+    document.getElementById('edu3-degree').innerHTML = t.edu3_degree + '<br><small style="color:var(--mid)">Université d\'Abomey-Calavi (UAC)/FASEG BENIN</small>';
+    document.getElementById('edu4-degree').innerHTML = t.edu4_degree;
+    document.getElementById('edu5-degree').innerHTML = t.edu5_degree;
+    
+    // Tech section
+    document.getElementById('tech-label').textContent = t.tech_label;
+    document.getElementById('tech-title').textContent = t.tech_title;
+    
+    // Languages section
+    document.getElementById('languages-label').textContent = t.languages_label;
+    document.getElementById('languages-title').textContent = t.languages_title;
+    document.getElementById('lang-fr').textContent = t.lang_fr;
+    document.getElementById('lang-en').textContent = t.lang_en;
+    document.getElementById('lang-yoruba').textContent = t.lang_yoruba;
+    document.getElementById('lang-fon').textContent = t.lang_fon;
+    document.getElementById('lang-adja').textContent = t.lang_adja;
+    
+    // References section
+    document.getElementById('references-label').textContent = t.references_label;
+    document.getElementById('references-title').textContent = t.references_title;
+    document.getElementById('ref1-role').textContent = t.ref1_role;
+    document.getElementById('ref2-role').textContent = t.ref2_role;
+    document.getElementById('ref3-role').textContent = t.ref3_role;
+    
+    // Interests section
+    document.getElementById('interests-label').textContent = t.interests_label;
+    document.getElementById('interests-title').textContent = t.interests_title;
+    document.getElementById('interest1').textContent = t.interest1;
+    document.getElementById('interest2').textContent = t.interest2;
+    document.getElementById('interest3').textContent = t.interest3;
+    document.getElementById('interest4').textContent = t.interest4;
+    
+    // Footer
+    document.getElementById('footer-text').innerHTML = t.footer_text;
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+  }
+</script>
 
 </body>
 </html>
