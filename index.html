@@ -562,19 +562,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 id="education-title">Études</h2>
       <div class="sidebar-card">
         <div class="edu-item">
-          <div class="edu-degree" id="edu1-degree">Certification en Data Engineer<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N</small></div>
+          <div class="edu-degree" id="edu1-degree">Certification en Data Engineer<br><small style="color:var(--mid)" class="univ_chk">Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N</small></div>
           <div class="edu-year">2026</div>
         </div>
         <div class="edu-item">
-          <div class="edu-degree" id="edu2-degree">Attestation de formation en Développement Mobile <br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small></div>
+          <div class="edu-degree" id="edu2-degree">Attestation de formation en Développement Mobile <br><small style="color:var(--mid)" class="oif"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small></div>
           <div class="edu-year">2025</div>
         </div>
            <div class="edu-item">
-          <div class="edu-degree" id="edu6-degree">Attestation de formation en Développement Web <br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small></div>
+          <div class="edu-degree" id="edu6-degree">Attestation de formation en Développement Web <br><small style="color:var(--mid)" class="oif"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small></div>
           <div class="edu-year">2025</div>
         </div>
         <div class="edu-item">
-          <div class="edu-degree" id="edu3-degree">Licence en Economie-Appliquée (Statistique-Econometrie)<br><small style="color:var(--mid)">Université d'Abomey-Calavi (UAC)/FASEG BENIN</small></div>
+          <div class="edu-degree" id="edu3-degree">Licence en Economie-Appliquée (Statistique-Econometrie)<br><small style="color:var(--mid)" class="univ_uac">f</small></div>
           <div class="edu-year">2017</div>
         </div>
         <div class="edu-item">
@@ -687,7 +687,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <footer>
-  <p id="footer-text">Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Developer &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 21 juin 2026</p>
+  <p id="footer-text">Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Developer &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 23 juin 2026</p>
 </footer>
 
 <script>
@@ -747,6 +747,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       edu6_degree: "Attestation de formation en Développement Web",
       edu4_degree: "Baccalauréat Série C - BENIN",
       edu5_degree: "Baccalauréat Série D - BENIN",
+      univ_chk: "Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N",
+      univ_uac: "Université d'Abomey-Calavi (UAC)/FASEG BENIN",
+      univ_oif: "Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC",
       tech_label: "Tech stack",
       tech_title: "Logiciels-Frameworks-Platforms",
       languages_label: "Communication",
@@ -767,7 +770,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       interest2: "Jeux",
       interest3: "Musique",
       interest4: "Cinéma",
-      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Develper &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 21 juin 2026"
+      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Develper &nbsp;·&nbsp; Cotonou, Bénin &nbsp;·&nbsp; Mis à jour : 23 juin 2026"
     },
     en: {
       hero_label: "Resume",
@@ -822,6 +825,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       edu3_degree: "Bachelor's in Applied Economics (Statistics-Econometrics)",
       edu4_degree: "High School Diploma Series C - BENIN",
       edu5_degree: "High School Diploma Series D - BENIN",
+      univ_chk: "Cheikh Hamidou KANE Digital University (UN-CHK) SENEGAL-Force-N Program",
+      univ_uac: "University of Abomey-Calavi (UAC)/FASEG BENIN",
+      univ_oif: "International Organization of La Francophonie (OIF)-DCLIC Project",
       tech_label: "Tech stack",
       tech_title: "Software-Frameworks-Platforms",
       languages_label: "Communication",
@@ -920,12 +926,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Education section
     document.getElementById('education-label').textContent = t.education_label;
     document.getElementById('education-title').textContent = t.education_title;
-    document.getElementById('edu1-degree').innerHTML = t.edu1_degree + '<br><small style="color:var(--mid)">Université numérique Cheikh Hamidou KANE (UN-CHK) SENEGAL-Programme Force-N</small>';
-    document.getElementById('edu2-degree').innerHTML = t.edu2_degree + '<br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small>';
-    document.getElementById('edu3-degree').innerHTML = t.edu3_degree + '<br><small style="color:var(--mid)">Université d\'Abomey-Calavi (UAC)/FASEG BENIN</small>';
+    document.getElementById('edu1-degree').innerHTML = t.edu1_degree ;
+    document.getElementById('edu2-degree').innerHTML = t.edu2_degree;
+    document.getElementById('edu3-degree').innerHTML = t.edu3_degree;
     document.getElementById('edu4-degree').innerHTML = t.edu4_degree;
     document.getElementById('edu5-degree').innerHTML = t.edu5_degree;
-    document.getElementById('edu6-degree').innerHTML = t.edu6_degree + '<br><small style="color:var(--mid)"> Organisation Internationale de la Francophonie (OIF)-Projet D-CLIC</small>';
+    document.getElementById('edu6-degree').innerHTML = t.edu6_degree;
+    document.querySelector('.univ_chk').textContent = t.univ_chk;
+    document.querySelector('.univ_uac').textContent = t.univ_uac;
+    document.querySelector('.oif').textContent = t.univ_oif;
     
     // Tech section
     document.getElementById('tech-label').textContent = t.tech_label;
