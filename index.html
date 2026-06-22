@@ -848,7 +848,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       interest2: "Games",
       interest3: "Music",
       interest4: "Movies",
-      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Developer &nbsp;·&nbsp; Cotonou, Benin &nbsp;·&nbsp; Updated: june 21, 2026"
+      footer_text: "Laurent Minakpon Alovognankou &nbsp;·&nbsp; Data Engineer -Data Analyst - Mobile & Web Developer &nbsp;·&nbsp; Cotonou, Benin &nbsp;·&nbsp; Updated: june 23, 2026"
     }
   };
 
@@ -926,15 +926,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Education section
     document.getElementById('education-label').textContent = t.education_label;
     document.getElementById('education-title').textContent = t.education_title;
-    document.getElementById('edu1-degree').innerHTML = t.edu1_degree ;
-    document.getElementById('edu2-degree').innerHTML = t.edu2_degree;
-    document.getElementById('edu3-degree').innerHTML = t.edu3_degree;
+    document.getElementById('edu1-degree').innerHTML = t.edu1_degree + '<br><small style="color:var(--mid)" class="univ_chk">' + t.univ_chk + '</small>';
+    document.getElementById('edu2-degree').innerHTML = t.edu2_degree + '<br><small style="color:var(--mid)" class="univ_oif">' + t.univ_oif + '</small>';
+    document.getElementById('edu3-degree').innerHTML = t.edu3_degree + '<br><small style="color:var(--mid)" class="univ_uac">' + t.univ_uac + '</small>';
     document.getElementById('edu4-degree').innerHTML = t.edu4_degree;
     document.getElementById('edu5-degree').innerHTML = t.edu5_degree;
     document.getElementById('edu6-degree').innerHTML = t.edu6_degree;
     document.querySelector('.univ_chk').textContent = t.univ_chk;
     document.querySelector('.univ_uac').textContent = t.univ_uac;
-    document.querySelector('.oif').textContent = t.univ_oif;
+    document.querySelector('.univ_oif').textContent = t.univ_oif;
     
     // Tech section
     document.getElementById('tech-label').textContent = t.tech_label;
